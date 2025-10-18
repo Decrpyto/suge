@@ -3,6 +3,8 @@
 import type React from "react";
 import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import { Suspense } from "react";
+import { ClerkProvider } from "@clerk/nextjs";
+import ConvexClerkProvider from "@/components/ConvexClerkProvider";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -30,7 +32,9 @@ function ClientLayoutContent({
             <body
                 className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}
             >
-                {children}
+                <ClerkProvider>
+                    <ConvexClerkProvider>{children}</ConvexClerkProvider>
+                </ClerkProvider>
             </body>
         </html>
     );
