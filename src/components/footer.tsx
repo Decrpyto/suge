@@ -12,7 +12,7 @@ export function Footer() {
                             tools for managing proposals, clients, and payments.
                         </p>
                         <p className="text-sm text-white/50 italic">
-                            "Manage your freelance business with ease"
+                            &quot;Manage your freelance business with ease&quot;
                         </p>
                     </div>
 

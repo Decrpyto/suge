@@ -67,8 +67,8 @@ export function FAQSection() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        Everything you need to know about Suge. Can't find what
-                        you're looking for? Contact our support team.
+                        Everything you need to know about Suge. Can&apos;t find
+                        what you&apos;re looking for? Contact our support team.
                     </motion.p>
                 </div>
 
