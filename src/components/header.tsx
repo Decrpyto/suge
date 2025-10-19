@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { SugeLogo } from "./suge-logo";
 import { Button } from "./ui/button";
+import { Authenticated, Unauthenticated } from "convex/react";
+import { SignInButton, SignUpButton } from "@clerk/nextjs";
 
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -83,19 +85,31 @@ export function Header() {
                 </nav>
 
                 <div className="flex items-center gap-3">
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-foreground/80 hover:text-foreground hover:bg-foreground/10 transition-all duration-200 rounded-xl"
-                    >
-                        Sign In
-                    </Button>
-                    <Button
-                        size="sm"
-                        className="bg-primary hover:bg-primary/90 text-primary-foreground transform transition-all duration-200 hover:scale-105 hover:shadow-lg rounded-xl"
-                    >
-                        Get Started
-                    </Button>
+                    <Unauthenticated>
+                        <div className="flex items-center gap-3">
+                            <SignInButton>
+                                <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="text-foreground/80 hover:text-foreground hover:bg-foreground/10 transition-all duration-200 rounded-xl"
+                                >
+                                    Sign In
+                                </Button>
+                            </SignInButton>
+
+                            <SignUpButton>
+                                <Button size="sm" className="primary-btn">
+                                    Get Started
+                                </Button>
+                            </SignUpButton>
+                        </div>
+                    </Unauthenticated>
+
+                    <Authenticated>
+                        <Button size="sm" className="primary-btn">
+                            Dashboard
+                        </Button>
+                    </Authenticated>
                 </div>
             </div>
         </header>
