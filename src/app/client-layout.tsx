@@ -1,63 +1,46 @@
 "use client";
 
-import type React from "react";
-import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import { Suspense } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import ConvexClerkProvider from "@/components/ConvexClerkProvider";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
+import Loader from "@/components/loader";
 
-const inter = Inter({
-    subsets: ["latin"],
-    variable: "--font-sans",
-});
-
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const jetbrainsMono = JetBrains_Mono({
     subsets: ["latin"],
     variable: "--font-mono",
 });
-
 const playfair = Playfair_Display({
     subsets: ["latin"],
     variable: "--font-playfair",
     weight: ["400", "700"],
 });
 
-function ClientLayoutContent({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
-    return (
-        <html lang="en" suppressHydrationWarning>
-            <body
-                className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}
-            >
-                <ClerkProvider>
-                    <ConvexClerkProvider>{children}</ConvexClerkProvider>
-                </ClerkProvider>
-            </body>
-        </html>
-    );
-}
-
 export default function ClientLayout({
     children,
-}: Readonly<{
+}: {
     children: React.ReactNode;
-}>) {
+}) {
     return (
-        <Suspense
-            fallback={
-                <html lang="en" suppressHydrationWarning>
-                    <body
-                        className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}
+        <Suspense fallback={<Loader />}>
+            <ClerkProvider>
+                <ConvexClerkProvider>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
                     >
-                        <div>Loading...</div>
-                    </body>
-                </html>
-            }
-        >
-            <ClientLayoutContent>{children}</ClientLayoutContent>
+                        <div
+                            className={`${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} font-sans`}
+                        >
+                            {children}
+                        </div>
+                    </ThemeProvider>
+                </ConvexClerkProvider>
+            </ClerkProvider>
         </Suspense>
     );
 }

@@ -15,15 +15,17 @@ export function HeroSection() {
 
             <div className="container mx-auto text-center relative z-10 pb-8">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-balance">
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-balance">
                         Manage proposals, clients, and payments{" "}
-                        <span className="text-gray-300">all in one place</span>
+                        <span className="text-muted-foreground">
+                            all in one place
+                        </span>
                     </h2>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                         <Button
                             size="lg"
-                            className="bg-white hover:bg-gray-200 text-black group"
+                            className="bg-primary hover:bg-primary/90 text-primary-foreground group"
                         >
                             Start Free Trial
                             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -31,7 +33,7 @@ export function HeroSection() {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="border-gray-600 text-white hover:bg-gray-800 bg-transparent"
+                            className="border-border text-foreground hover:bg-foreground/10 bg-transparent"
                         >
                             Watch Demo
                         </Button>
@@ -40,8 +42,8 @@ export function HeroSection() {
                     <div className="mt-16 mb-8">
                         <div className="group relative m-auto max-w-6xl">
                             <div className="flex flex-col items-center md:flex-row">
-                                <div className="md:max-w-44 md:border-r md:border-gray-600 md:pr-6 mb-4 md:mb-0">
-                                    <p className="text-end text-sm text-gray-400">
+                                <div className="md:max-w-44 md:border-r md:border-border md:pr-6 mb-4 md:mb-0">
+                                    <p className="text-end text-sm text-muted-foreground">
                                         Trusted by freelancers
                                     </p>
                                 </div>

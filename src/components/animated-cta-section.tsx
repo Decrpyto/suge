@@ -11,8 +11,7 @@ export function AnimatedCTASection() {
     return (
         <section className="relative py-20 px-4 overflow-hidden">
             <div className="absolute inset-0">
-                <div className="h-full w-full bg-gradient-to-br from-gray-900 via-black to-gray-800">
-                    <BackgroundPaths />
+                <div className="h-full w-full bg-gradient-to-br from-background via-background to-background">
                     <div className="absolute inset-0 opacity-20">
                         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
                         <div
@@ -39,14 +38,19 @@ export function AnimatedCTASection() {
                 }}
             />
 
-            <div className="relative z-10 container mx-auto">
+            {/* Render animated lines above the overlays */}
+            <div className="absolute inset-0 z-10 pointer-events-none">
+                <BackgroundPaths />
+            </div>
+
+            <div className="relative z-20 container mx-auto">
                 <div
                     className="rounded-2xl p-12 text-center animate-fade-in-up"
                     ref={contentRef}
                     style={{ animationDelay: "0.3s" }}
                 >
                     <h2
-                        className="text-4xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up"
+                        className="text-4xl font-bold text-foreground mb-4 drop-shadow-lg animate-fade-in-up"
                         style={{
                             fontFamily: "var(--font-playfair)",
                             animationDelay: "0.5s",
@@ -55,7 +59,7 @@ export function AnimatedCTASection() {
                         Ready to Streamline Your Freelance Business?
                     </h2>
                     <p
-                        className="text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-md animate-fade-in-up"
+                        className="text-xl text-foreground/90 mb-8 max-w-2xl mx-auto drop-shadow-md animate-fade-in-up"
                         style={{ animationDelay: "0.7s" }}
                     >
                         Join thousands of freelancers already using Suge to
@@ -67,7 +71,7 @@ export function AnimatedCTASection() {
                     >
                         <Button
                             size="lg"
-                            className="bg-white text-black hover:bg-white/90 group"
+                            className="bg-primary text-primary-foreground hover:bg-primary/90 group"
                         >
                             Start Your Free Trial
                             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -75,7 +79,7 @@ export function AnimatedCTASection() {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="border-white text-white hover:bg-white/10 bg-transparent"
+                            className="border-border text-foreground hover:bg-foreground/10 bg-transparent"
                         >
                             Contact Sales
                         </Button>

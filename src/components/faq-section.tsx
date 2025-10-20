@@ -51,7 +51,7 @@ export function FAQSection() {
             <div className="container mx-auto max-w-4xl">
                 <div className="text-center mb-16">
                     <motion.h2
-                        className="text-4xl font-bold text-white mb-4"
+                        className="text-4xl font-bold text-foreground mb-4"
                         style={{ fontFamily: "var(--font-playfair)" }}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export function FAQSection() {
                         Frequently Asked Questions
                     </motion.h2>
                     <motion.p
-                        className="text-xl text-gray-300 max-w-2xl mx-auto"
+                        className="text-xl text-muted-foreground max-w-2xl mx-auto"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
@@ -83,14 +83,14 @@ export function FAQSection() {
                             viewport={{ once: true }}
                         >
                             <button
-                                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors rounded-lg"
+                                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-foreground/5 transition-colors rounded-lg"
                                 onClick={() => toggleFAQ(index)}
                             >
-                                <span className="text-lg font-medium text-white pr-4">
+                                <span className="text-lg font-medium text-foreground pr-4">
                                     {faq.question}
                                 </span>
                                 <ChevronDown
-                                    className={`h-5 w-5 text-gray-400 transition-transform flex-shrink-0 ${
+                                    className={`h-5 w-5 text-muted-foreground transition-transform flex-shrink-0 ${
                                         openIndex === index ? "rotate-180" : ""
                                     }`}
                                 />
@@ -109,7 +109,7 @@ export function FAQSection() {
                                 className="overflow-hidden"
                             >
                                 <div className="px-6 pb-4">
-                                    <p className="text-gray-300 leading-relaxed">
+                                    <p className="text-muted-foreground leading-relaxed">
                                         {faq.answer}
                                     </p>
                                 </div>

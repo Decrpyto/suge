@@ -37,7 +37,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
 
     return (
         <motion.div
-            className="relative overflow-hidden h-full bg-black rounded-lg border border-border/20 group"
+            className="relative overflow-hidden h-full bg-card rounded-lg border border-border/20 group"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay }}
@@ -71,7 +71,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
             </div>
 
             <div className="absolute inset-0 opacity-80 transition-opacity duration-500">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full animate-[shine_4s_ease-in-out_infinite] w-[200%]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/10 to-transparent transform -skew-x-12 -translate-x-full animate-[shine_4s_ease-in-out_infinite] w-[200%]" />
             </div>
 
             <motion.div
@@ -107,7 +107,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
 
 export function AnimatedFeaturesSection() {
     return (
-        <section id="features" className="py-20 px-4 bg-black">
+        <section id="features" className="py-20 px-4 bg-background">
             <svg width="0" height="0" className="absolute">
                 <defs>
                     <filter id="noise" x="0%" y="0%" width="100%" height="100%">
@@ -133,12 +133,12 @@ export function AnimatedFeaturesSection() {
             <div className="container mx-auto">
                 <div className="text-center mb-16">
                     <h2
-                        className="text-4xl font-bold text-white mb-4"
+                        className="text-4xl font-bold text-foreground mb-4"
                         style={{ fontFamily: "var(--font-playfair)" }}
                     >
                         Powerful Tools for Freelancers
                     </h2>
-                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                         Everything you need to run your freelance business
                         professionally
                     </p>

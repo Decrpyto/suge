@@ -5,8 +5,10 @@ import { SugeLogo } from "./suge-logo";
 import { Button } from "./ui/button";
 import { Authenticated, Unauthenticated } from "convex/react";
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 export function Header() {
+    const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -106,7 +108,11 @@ export function Header() {
                     </Unauthenticated>
 
                     <Authenticated>
-                        <Button size="sm" className="primary-btn">
+                        <Button
+                            onClick={() => router.push("/dashboard")}
+                            size="sm"
+                            className="primary-btn"
+                        >
                             Dashboard
                         </Button>
                     </Authenticated>

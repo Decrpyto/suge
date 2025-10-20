@@ -54,12 +54,15 @@ function FloatingPaths({ position }: { position: number }) {
                         <path d={path.d} stroke="none" fill="none" />
                         <path
                             d={path.d}
-                            stroke="rgba(255, 255, 255, 0.8)"
+                            stroke="rgba(255, 255, 255, 0.85)"
                             strokeWidth={path.width}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             fill="none"
                             style={{
                                 strokeDasharray: `${path.dashLength} ${path.dashGap}`,
-                                opacity: 0.6 + path.id * 0.02,
+                                willChange: "stroke-dashoffset",
+                                opacity: Math.min(0.95, 0.6 + path.id * 0.02),
                                 animation: `travelPath-${path.id} ${path.duration}s linear infinite`,
                                 animationDelay: `${path.delay}s`,
                             }}
@@ -68,7 +71,7 @@ function FloatingPaths({ position }: { position: number }) {
                 ))}
             </svg>
 
-            <style jsx>{`
+            <style jsx global>{`
                 ${paths
                     .map(
                         (path) => `
@@ -129,12 +132,15 @@ function FlippedFloatingPaths({ position }: { position: number }) {
                         <path d={path.d} stroke="none" fill="none" />
                         <path
                             d={path.d}
-                            stroke="rgba(255, 255, 255, 0.8)"
+                            stroke="rgba(255, 255, 255, 0.85)"
                             strokeWidth={path.width}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             fill="none"
                             style={{
                                 strokeDasharray: `${path.dashLength} ${path.dashGap}`,
-                                opacity: 0.6 + path.id * 0.02,
+                                willChange: "stroke-dashoffset",
+                                opacity: Math.min(0.95, 0.6 + path.id * 0.02),
                                 animation: `travelPathFlipped-${path.id} ${path.duration}s linear infinite`,
                                 animationDelay: `${path.delay}s`,
                             }}
@@ -143,7 +149,7 @@ function FlippedFloatingPaths({ position }: { position: number }) {
                 ))}
             </svg>
 
-            <style jsx>{`
+            <style jsx global>{`
                 ${paths
                     .map(
                         (path) => `

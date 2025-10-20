@@ -1,4 +1,3 @@
-import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientLayout from "./client-layout";
@@ -10,8 +9,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
-}: Readonly<{
+}: {
     children: React.ReactNode;
-}>) {
-    return <ClientLayout>{children}</ClientLayout>;
+}) {
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body>
+                {/* All client-side providers including ThemeProvider are inside ClientLayout */}
+                <ClientLayout>{children}</ClientLayout>
+            </body>
+        </html>
+    );
 }
