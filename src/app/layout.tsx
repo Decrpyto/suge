@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientLayout from "./client-layout";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
     title: "Suge - Modern SaaS Solution",
@@ -16,7 +17,10 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body>
                 {/* All client-side providers including ThemeProvider are inside ClientLayout */}
-                <ClientLayout>{children}</ClientLayout>
+                <ClientLayout>
+                    {children}
+                    <Toaster />
+                </ClientLayout>
             </body>
         </html>
     );
